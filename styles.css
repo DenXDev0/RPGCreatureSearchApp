@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 32px;
+  color: #f47e7e;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  padding: 10px;
+  width: 80%;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#search-input:focus {
+  border-color: #3498db;
+}
+
+#search-button {
+  padding: 10px 20px;
+  background-color: #95a7ec;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 80%;
+  transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: #6a88ff;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#suggestions {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  max-height: 100px;
+  overflow-y: auto;
+  width: 80%;
+}
+
+.suggestion-item {
+  padding: 8px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+#loading {
+  margin-top: 20px;
+  color: #3498db;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+#loading::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 4px solid #3498db;
+  border-top-color: transparent;
+  margin-right: 10px;
+  animation: spin 1s linear infinite;
+}
+
+#pokemon-info {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  text-align: left;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  width: 100%;
+  max-width: 500px;
+}
+
+#pokemon-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.type-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+  color: #fff !important;
+}
+
+.type-badge:hover {
+  transform: scale(1.1);
+}
+
+.pokemon-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pokemon-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 30px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.pokemon-details p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+  color: #65aef2;
+  font-weight: bold;
+}
+
+.pokemon-details p strong {
+  color: #333;
+}
+#pokemon-namefrist {
+  color: #95a7ec;
+}
+
+.fire { background-color: #f8a57e; }
+.water { background-color: #65aef2; }
+.grass { background-color: #8bc34a; }
+.electric { background-color: #f9e84d; }
+.ghost { background-color: #7b7f8c; }
+.normal { background-color: #9e9e9e; }
+.fighting { background-color: #d57363; }
+.poison { background-color: #b08ff3; }
+.bug { background-color: #88c85e; }
+.rock { background-color: #be9e3b; }
+.ice { background-color: #79c7db; }
+.fairy { background-color: #f8b2f4; }
+.psychic { background-color: #ff99e1; }
+.dragon { background-color: #f28f62; }
+.dark { background-color: #4b4b4b; }
+.steel { background-color: #9b9b9b; }
+.flying { background-color: #87ceeb; }
+
+#sprite-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+  animation: bounceIn 1s ease-out forwards;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
