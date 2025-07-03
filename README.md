@@ -44,7 +44,7 @@ This project offers a powerful **search interface** where users can look up any 
 RPGCreatureSearchApp/
 ├── index.html # Main HTML file
 ├── styles.css # CSS file for styling (optional)
-├── script.js # JavaScript file for palindrome checking logic
+├── script.js # JavaScript file for logic
 └── README.md # Project documentation
 ```
 
